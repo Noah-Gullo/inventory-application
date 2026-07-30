@@ -11,6 +11,12 @@ const assetsPath = path.join(__dirname, "public");
 app.use(express.static(assetsPath));
 
 app.use("/", indexRouter);
+app.get("*error", (req, res) => {
+    if(res.status(404)){
+        res.render("404.ejs");
+    }
+})
+
 
 app.listen(PORT, (error) => {
     if(error){
