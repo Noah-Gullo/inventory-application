@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node --env-file=.env.development app.js"
+    "start": "node --env-file=.env.development app.js",
+    "data": "node --env-file=.env.development db/populatedb.js"
   },
   "repository": {
     "type": "git",
