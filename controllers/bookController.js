@@ -17,12 +17,12 @@ async function getBook(req, res){
     try{
         const bookID = req.params.bookID;
         const genreName = req.params.genreName;
-        console.log(genreName);
         const book = await db.getSpecificBook(bookID);
+        const author = await db.getAuthorFromBook(bookID);
         if(!book){
             console.log("Book could not be loaded");
         }
-        res.render('bookDetails.ejs', {book: book, genre: genreName});
+        res.render('bookDetails.ejs', {book: book, genre: genreName, author: author});
     }catch(error){
         res.render('error.ejs', {title: error, message: error});
     }

@@ -15,8 +15,14 @@ async function getSpecificBook(bookID){
     return targetBook[0];
 }
 
+async function getAuthorFromBook(bookID){
+    const {rows: targetAuthor} = await pool.query('SELECT author.name FROM author JOIN books ON books.author_id = author.id WHERE books.id = $1;', [bookID]);
+    return targetAuthor[0];
+}
+
 module.exports = {
     getAllGenres,
     getAllBooks,
     getSpecificBook,
+    getAuthorFromBook,
 };
