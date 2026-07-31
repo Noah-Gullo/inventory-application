@@ -10,7 +10,13 @@ async function getAllBooks(genreName){
     return books;
 }
 
+async function getSpecificBook(bookID){
+    const {rows: targetBook} = await pool.query('SELECT * FROM books WHERE id=$1', [bookID]); 
+    return targetBook[0];
+}
+
 module.exports = {
     getAllGenres,
     getAllBooks,
+    getSpecificBook,
 };

@@ -1,3 +1,4 @@
+<%# GET / %>
 <!DOCTYPE html>
 
 <html>
@@ -9,7 +10,7 @@
     <body>
         <% genres.forEach((genre) => { %>
             <form action="/<%= genre.name %>" method="POST">
-                <button><%= genre.name %></button>
+                <button type="submit"><%= genre.name %></button>
             </form>
         <% }) %>
     </body>

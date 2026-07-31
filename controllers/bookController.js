@@ -13,6 +13,22 @@ async function getBooksInGenre(req, res){
     }
 }
 
+async function getBook(req, res){
+    try{
+        const bookID = req.params.bookID;
+        const genreName = req.params.genreName;
+        console.log(genreName);
+        const book = await db.getSpecificBook(bookID);
+        if(!book){
+            console.log("Book could not be loaded");
+        }
+        res.render('bookDetails.ejs', {book: book, genre: genreName});
+    }catch(error){
+        res.render('error.ejs', {title: error, message: error});
+    }
+}
+
 module.exports = {
     getBooksInGenre,
+    getBook,
 }

@@ -1,3 +1,4 @@
+<%# GET /:genreName %>
 <!DOCTYPE html>
 
 <html>
@@ -7,9 +8,13 @@
     </head>
 
     <body>
+        <h1><%= genre %> Books</h1>
         <% if (books.length != 0){ %>
             <% books.forEach((book) => { %>
-            <p><%= book.title %> </p>
+            <p class="bookTitle"><%= book.title %></p>
+            <form action="/<%= genre %>/<%= book.id %>" method="POST">
+                <button type="submit">View more details</button>
+            </form>
             <% }) %>
         <% } else { %>
             <p> No books were found for '<%= genre %>'</p>

@@ -1,0 +1,22 @@
+<%# GET /:genreName/:bookID %>
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title><%= book.title %></title>
+        <link rel="stylesheet" href="/styles.css">
+    </head>
+
+    <body>
+        <h1>Book Details</h1>
+        <% if (book){ %>
+            <p class="bookTitle">Title: <%= book.title %></p>
+            <p class="authorName">Author Name: </p>
+            <p class="genreName">Genre: </p>
+            <p class="releaseDate">Published On: </p> 
+        <% } else { %>
+            <p> No book was found named</p>
+        <% } %>
+        <a href="/<%= genre %>"> Back to <%= genre %> </a>
+    </body>
+</html>
