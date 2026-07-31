@@ -20,9 +20,14 @@ async function getAuthorFromBook(bookID){
     return targetAuthor[0];
 }
 
+async function createGenre(genreName){
+    await pool.query('INSERT INTO genre (name) VALUES ($1)', [genreName]);
+}  
+
 module.exports = {
     getAllGenres,
     getAllBooks,
     getSpecificBook,
     getAuthorFromBook,
+    createGenre,
 };

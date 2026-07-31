@@ -12,6 +12,17 @@ async function getGenres(req, res){
     }
 }
 
+async function getNewGenre(req, res){
+    res.render('createBookForm.ejs');
+}
+
+async function createGenre(req, res){
+    await db.createGenre(req.body.newGenreText);
+    res.redirect("/");
+}
+
 module.exports = {
     getGenres,
+    getNewGenre,
+    createGenre,
 }
