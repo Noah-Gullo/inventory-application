@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title><%= genre %></title>
+        <link rel="stylesheet" href="/styles.css">
+    </head>
+
+    <body>
+        <% if (books.length != 0){ %>
+            <% books.forEach((book) => { %>
+            <p><%= book.title %> </p>
+            <% }) %>
+        <% } else { %>
+            <p> No books were found for '<%= genre %>'</p>
+        <% } %>
+        <a href="/"> Back to Home </a>
+    </body>
+</html>

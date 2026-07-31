@@ -4,7 +4,7 @@ async function getGenres(req, res){
     try{
         const genres = await db.getAllGenres();
         if(!genres){
-            console.log("WTF");
+            console.log("Genres could not be loaded");
         }
         res.render('index.ejs', {genres: genres});
     }catch(error){
