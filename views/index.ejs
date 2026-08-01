@@ -12,6 +12,8 @@
             <form action="/<%= genre.name %>" method="POST">
                 <button type="submit"><%= genre.name %></button>
             </form>
+             
+            <a href="/editGenre/<%= genre.name %>">Edit Genre</a>
         <% }) %>
         <a href="/newGenre">Add Genre</a>
     </body>

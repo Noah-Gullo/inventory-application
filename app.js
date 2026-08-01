@@ -18,7 +18,6 @@ app.get("*error", (req, res) => {
     }
 })
 
-
 app.listen(PORT, (error) => {
     if(error){
         throw error;

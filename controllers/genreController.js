@@ -1,3 +1,4 @@
+const { createCheckSchema } = require("express-validator/lib/middlewares/schema.js");
 const db = require("../db/queries.js");
 
 async function getGenres(req, res){
@@ -13,16 +14,28 @@ async function getGenres(req, res){
 }
 
 async function getNewGenre(req, res){
-    res.render('createBookForm.ejs');
+    res.render('createGenreForm.ejs');
 }
+
+async function getEditGenre(req, res){
+    res.render('editGenreForm.ejs', {genre: req.params.genreName});
+}
+
 
 async function createGenre(req, res){
     await db.createGenre(req.body.newGenreText);
     res.redirect("/");
 }
 
+async function editGenre(req, res){
+    await db.editGenre(req.params.genreName, req.body.editGenreText);
+    res.redirect("/");
+}  
+
 module.exports = {
     getGenres,
     getNewGenre,
+    getEditGenre,
     createGenre,
+    editGenre,
 }

@@ -24,10 +24,15 @@ async function createGenre(genreName){
     await pool.query('INSERT INTO genre (name) VALUES ($1)', [genreName]);
 }  
 
+async function editGenre(prevName, newName){
+    await pool.query('UPDATE genre SET name=$2 WHERE name=$1', [prevName, newName]);
+}
+
 module.exports = {
     getAllGenres,
     getAllBooks,
     getSpecificBook,
     getAuthorFromBook,
     createGenre,
+    editGenre,
 };
