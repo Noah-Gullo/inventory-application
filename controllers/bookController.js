@@ -34,7 +34,7 @@ function getNewBook(req, res){
 
 async function addBook(req, res){
     await db.addBook(req.body.newBookTitle, req.body.newAuthorName, req.params.genreName, req.body.newBookDate);
-    res.redirect("/");
+    res.redirect(`/${req.params.genreName}`);
 }
 
 module.exports = {
