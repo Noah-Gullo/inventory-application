@@ -1,4 +1,4 @@
-<%# GET /newGenre %>
+<%# GET /editGenre/:genreName %>
 <!DOCTYPE html>
 
 <html>
@@ -8,11 +8,11 @@
     </head>
 
     <body>
-        <h1>Add Genre</h1>
-        <form action="/newGenre/" method="POST">
-            <label for="newGenreText">Genre Name: </label>
-            <input type="text" name="newGenreText" placeholder="Genre Name" required />
-            <button type="submit">Save Genre</button>
+        <h1>Create Genre</h1>
+        <form action="/editGenre/<%= genre %>" method="POST">
+            <label for="editGenreText">Edit Name: </label>
+            <input type="text" name="editGenreText" value="<%= genre %>" required/>
+            <button type="submit">Save Edit</button>
         </form>
         <a href="/">Back to Home</a>
     </body>

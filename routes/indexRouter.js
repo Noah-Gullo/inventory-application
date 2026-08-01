@@ -1,7 +1,7 @@
 const { Router } = require('express');
 const indexRouter = Router();
 const { getGenres, getNewGenre, getEditGenre, createGenre, editGenre } = require('../controllers/genreController');
-const { getBooksInGenre, getBook, getNewBook, addBook} = require('../controllers/bookController');
+const { getBooksInGenre, getBook, getEditBook, getNewBook, addBook, editBook} = require('../controllers/bookController');
 
 indexRouter.get("/", getGenres);
 indexRouter.get("/newGenre", getNewGenre);
@@ -12,6 +12,9 @@ indexRouter.post("/editGenre/:genreName", editGenre);
 
 indexRouter.get("/newBook/:genreName", getNewBook);
 indexRouter.post("/newBook/:genreName", addBook)
+
+indexRouter.get("/editBook/:genreName/:bookID", getEditBook);
+indexRouter.post("/editBook/:genreName/:bookID", editBook);
 
 indexRouter.post("/:genreName/:bookID", getBook);
 indexRouter.get("/:genreName/:bookID", getBook);

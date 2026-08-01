@@ -11,10 +11,14 @@
         <h1><%= genre %> Books</h1>
         <% if (books.length != 0){ %>
             <% books.forEach((book) => { %>
-            <p class="bookTitle"><%= book.title %></p>
-            <form action="/<%= genre %>/<%= book.id %>" method="POST">
-                <button type="submit">View more details</button>
-            </form>
+                <p class="bookTitle"><%= book.title %></p>
+                <form action="/<%= genre %>/<%= book.id %>" method="POST">
+                    <button type="submit">View more details</button>
+                </form>
+
+                <form action="/editBook/<%= genre %>/<%= book.id %>" method="GET">
+                    <button type="submit">Edit Book</button>
+                </form>
             <% }) %>
         <% } else { %>
             <p> No books were found for '<%= genre %>'</p>

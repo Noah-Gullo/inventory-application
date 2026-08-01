@@ -37,9 +37,20 @@ async function addBook(req, res){
     res.redirect(`/${req.params.genreName}`);
 }
 
+function getEditBook(req, res){
+    res.render("editBookForm.ejs", {genre: req.params.genreName, id: req.params.bookID});
+}
+
+async function editBook(req, res){
+    await db.editBook(req.params.bookID, req.body.editedBookTitle, req.body.editedAuthorName, req.params.genreName, req.body.editedBookDate);
+    res.redirect(`/${req.params.genreName}`)
+}
+
 module.exports = {
     getBooksInGenre,
     getBook,
+    getEditBook,
     getNewBook,
     addBook,
+    editBook,
 }
