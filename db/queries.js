@@ -45,6 +45,13 @@ async function editBook(id, title, author, genre, date){
     await pool.query('UPDATE books SET author_id= $2, genre_id = $3, title = $1, release_date = $4 WHERE id=$5', [title, author_id, genre_id, date, id]);
 }
 
+async function deleteGenre(genreName){
+    const genreResult = await pool.query('SELECT * FROM genre WHERE name=$1', [genreName]);
+    const genre_id = genreResult.rows[0].id;
+    await pool.query('DELETE FROM books WHERE genre_id=$1', [genre_id]);
+    await pool.query('DELETE FROM genre WHERE id=$1', [genre_id]);
+}
+
 module.exports = {
     getAllGenres,
     getAllBooks,
@@ -54,4 +61,5 @@ module.exports = {
     editGenre,
     addBook,
     editBook,
+    deleteGenre,
 };

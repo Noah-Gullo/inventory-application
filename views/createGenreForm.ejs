@@ -9,9 +9,9 @@
 
     <body>
         <h1>Create Genre</h1>
-        <form action="/editGenre/<%= genre %>" method="POST">
-            <label for="editGenreText">Edit Name: </label>
-            <input type="text" name="editGenreText" value="<%= genre %>" required/>
+        <form action="/newGenre" method="POST">
+            <label for="newGenreText">Genre Name: </label>
+            <input type="text" name="newGenreText" required/>
             <button type="submit">Save Edit</button>
         </form>
         <a href="/">Back to Home</a>

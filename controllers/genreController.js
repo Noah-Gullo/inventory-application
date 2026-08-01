@@ -14,7 +14,7 @@ async function getGenres(req, res){
 }
 
 function getNewGenre(req, res){
-    res.render('createGenreForm.ejs');
+    res.render('createGenreForm.ejs', {genre: req.params.genreName});
 }
 
 function getEditGenre(req, res){
@@ -32,10 +32,16 @@ async function editGenre(req, res){
     res.redirect("/");
 }  
 
+async function deleteGenre(req, res){
+    await db.deleteGenre(req.params.genreName);
+    res.redirect("/");
+}
+
 module.exports = {
     getGenres,
     getNewGenre,
     getEditGenre,
     createGenre,
     editGenre,
+    deleteGenre,
 }
