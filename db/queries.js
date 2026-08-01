@@ -28,6 +28,15 @@ async function editGenre(prevName, newName){
     await pool.query('UPDATE genre SET name=$2 WHERE name=$1', [prevName, newName]);
 }
 
+async function addBook(title, author, genre, date){
+    const authorResult = await pool.query('INSERT INTO author (name) VALUES ($1) ON CONFLICT (name) DO UPDATE SET name = EXCLUDED.name RETURNING id', [author]);
+    const author_id = authorResult.rows[0].id;
+    const genreResult = await pool.query('SELECT id FROM genre WHERE name=$1', [genre]);
+    const genre_id = genreResult.rows[0].id;
+    const bookRes = await pool.query(`INSERT INTO books (author_id, genre_id, title, release_date) VALUES ($1, $2, $3, $4) RETURNING id`,
+                                      [author_id, genre_id, title, date]);
+}
+
 module.exports = {
     getAllGenres,
     getAllBooks,
@@ -35,4 +44,5 @@ module.exports = {
     getAuthorFromBook,
     createGenre,
     editGenre,
+    addBook,
 };

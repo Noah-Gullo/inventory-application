@@ -8,8 +8,10 @@
     </head>
 
     <body>
+        <h1>Edit Genre</h1>
         <form action="/editGenre/<%= genre %>" method="POST">
-            <input type="text" name="editGenreText" value="<%= genre %>" />
+            <label for="editGenreText">Edit Name: </label>
+            <input type="text" name="editGenreText" value="<%= genre %>" required/>
             <button type="submit">Save Edit</button>
         </form>
         <a href="/">Back to Home</a>

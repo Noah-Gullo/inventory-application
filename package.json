@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node --env-file=.env.development app.js",
+    "reset": "npm run data; npm start;",
     "data": "node --env-file=.env.development db/populatedb.js"
   },
   "repository": {

@@ -8,8 +8,10 @@
     </head>
 
     <body>
+        <h1>Add Genre</h1>
         <form action="/newGenre/" method="POST">
-            <input type="text" name="newGenreText" placeholder="Genre Name" />
+            <label for="newGenreText">Genre Name: </label>
+            <input type="text" name="newGenreText" placeholder="Genre Name" required />
             <button type="submit">Save Genre</button>
         </form>
         <a href="/">Back to Home</a>

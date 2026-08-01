@@ -13,11 +13,11 @@ async function getGenres(req, res){
     }
 }
 
-async function getNewGenre(req, res){
+function getNewGenre(req, res){
     res.render('createGenreForm.ejs');
 }
 
-async function getEditGenre(req, res){
+function getEditGenre(req, res){
     res.render('editGenreForm.ejs', {genre: req.params.genreName});
 }
 

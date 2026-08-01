@@ -28,7 +28,18 @@ async function getBook(req, res){
     }
 }
 
+function getNewBook(req, res){
+    res.render("newBook.ejs", {genre: req.params.genreName});
+}
+
+async function addBook(req, res){
+    await db.addBook(req.body.newBookTitle, req.body.newAuthorName, req.params.genreName, req.body.newBookDate);
+    res.redirect("/");
+}
+
 module.exports = {
     getBooksInGenre,
     getBook,
+    getNewBook,
+    addBook,
 }
