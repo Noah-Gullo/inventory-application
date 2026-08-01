@@ -10,10 +10,12 @@
     <body>
         <h1>Book Details</h1>
         <% if (book){ %>
-            <p class="bookTitle">Title: <%= book.title %></p>
-            <p class="authorName">Author Name: <%= author.name %></p>
-            <p class="genreName">Genre: <%= genre %></p>
-            <p class="releaseDate">Published On: <%= book.release_date %></p> 
+            <div class="bookDetails">
+                <p class="title">Title: <%= book.title %></p>
+                <p class="authorName">Author Name: <%= author.name %></p>
+                <p class="genreName">Genre: <%= genre %></p>
+                <p class="releaseDate">Published On: <%= book.release_date %></p>
+            </div> 
         <% } else { %>
             <p> No book was found named</p>
         <% } %>

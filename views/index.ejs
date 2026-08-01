@@ -8,17 +8,20 @@
     </head>
 
     <body>
+        <h1>Inventory Application</h1>
         <% genres.forEach((genre) => { %>
-            <form action="/<%= genre.name %>" method="POST">
-                <button type="submit"><%= genre.name %></button>
-            </form>
+            <div class="genre">
+                <form action="/<%= genre.name %>" method="POST">
+                    <button class="genreButton" type="submit"><%= genre.name %></button>
+                </form>
 
-            <form action="/<%= genre.name %>/delete" method="POST">
-                <button type="submit">Delete</button>
-            </form>
-             
-            <a href="/editGenre/<%= genre.name %>">Edit Genre</a>
+                <form action="/<%= genre.name %>/delete" method="POST">
+                    <button type="submit">Delete</button>
+                </form>
+                
+                <a href="/editGenre/<%= genre.name %>">Edit Genre</a>
+            </div>
         <% }) %>
-        <a href="/newGenre">Add Genre</a>
+        <a id="newGenre" href="/newGenre">Add Genre</a>
     </body>
 </html>

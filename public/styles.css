@@ -1,0 +1,74 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1, form{
+    margin-left: 1em;
+}
+
+button{
+    padding: 0.25em;
+    font-size: 1em;
+    border-radius: 0.25em;
+    transition: ease-in-out 0.2s;
+}
+
+button:hover{
+    background-color: gray;
+    padding: 0.3em;
+    transition: ease-in-out 0.2s;
+}
+
+button:active{
+    background-color: gray;
+    padding: 0.23em;
+    transition: ease-in-out 0.2s;
+}
+
+a{
+    margin-left: 1em;
+}
+
+.genre{
+    display: flex;
+    align-items: center;
+    gap: 3em;
+    padding: 2em;
+    margin: 1em;
+    border: 2px solid black;
+    border-radius: 0.4em;
+}
+
+.genreButton{
+    font-size: 1.25em;
+}
+
+#newGenre{
+    margin: 1em;
+}
+
+.book{
+    display: flex;
+    align-items: center;
+    gap: 3em;
+    padding: 2em;
+    margin: 1em;
+    border: 2px solid black;
+    border-radius: 0.4em;
+}
+
+.bookTitle{
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.bookDetails{
+    margin: 1em;
+}
+
+.bookDetails > p{
+    margin-top: 1em;
+}
