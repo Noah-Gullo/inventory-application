@@ -52,6 +52,10 @@ async function deleteGenre(genreName){
     await pool.query('DELETE FROM genre WHERE id=$1', [genre_id]);
 }
 
+async function deleteBook(bookID){
+    await pool.query('DELETE FROM books WHERE id=$1', [bookID]);
+}
+
 module.exports = {
     getAllGenres,
     getAllBooks,
@@ -62,4 +66,5 @@ module.exports = {
     addBook,
     editBook,
     deleteGenre,
+    deleteBook,
 };

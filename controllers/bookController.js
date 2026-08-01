@@ -46,6 +46,11 @@ async function editBook(req, res){
     res.redirect(`/${req.params.genreName}`)
 }
 
+async function deleteBook(req, res){
+    await db.deleteBook(req.params.bookID);
+    res.redirect(`/${req.params.genreName}`);
+}
+
 module.exports = {
     getBooksInGenre,
     getBook,
@@ -53,4 +58,5 @@ module.exports = {
     getNewBook,
     addBook,
     editBook,
+    deleteBook,
 }

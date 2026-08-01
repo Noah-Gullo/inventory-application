@@ -19,6 +19,10 @@
                 <form action="/editBook/<%= genre %>/<%= book.id %>" method="GET">
                     <button type="submit">Save Details</button>
                 </form>
+
+                <form action="<%= genre %>/<%= book.id %>/delete" method="POST">
+                    <button type="submit">Delete</button>
+                </form>
             <% }) %>
         <% } else { %>
             <p> No books were found for '<%= genre %>'</p>
